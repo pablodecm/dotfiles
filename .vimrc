@@ -1,16 +1,17 @@
 " Autosource .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" Vundle Configuration
-set nocompatible
-filetype off
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+"
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " The bundles you install will be listed here
 
@@ -18,13 +19,15 @@ filetype plugin indent on
 
 " Vundle Plugins 
 
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'klen/python-mode'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
@@ -113,7 +116,8 @@ if has ('gui_running')
     highlight Pmenu guibg=#cccccc gui=bold    
 endif
 
-" Color scheme                                           " mkdir -p ~/.vim/colors && cd ~/.vim/colors 
+" Color scheme                                          
+" mkdir -p ~/.vim/colors && cd ~/.vim/colors 
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400  
 set t_Co=256
 color wombat256mod   
