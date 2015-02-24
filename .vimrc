@@ -1,31 +1,77 @@
-" Autosource .vimrc
-autocmd! bufwritepost .vimrc source %
+filetype off  
+set nocompatible 
 
-filetype off                  " required
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
 
-set background=dark           " dark bkg is used
-colorscheme desert            " nicer colorscheme
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+endif
+
+" Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Bundles:
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/vimshell'
+
+NeoBundle 'bling/vim-airline'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/gist-vim'
+
+NeoBundle 'tomasr/molokai'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+set background=dark
+colorscheme molokai
 
 set encoding=utf8
 
-set nocompatible              " be iMproved
 set wildmenu                  " enhanced completion
 set laststatus=2              " always show status line
 set ruler                     " show cursor position
 set number                    " add line numbers
 set cursorline                " highlight cursor line
+set wrap
 
 filetype plugin indent on
 
 " Allow mouse scrolling
 set mouse=a
 " Rebind <Leader> key
-let mapleader = ","
+let mapleader=","
 
 "  Spaces instead of tabs
 set tabstop=2
 set shiftwidth=2
 set expandtab
 
-"" Syntax highlighting
+" Syntax highlighting
 syntax on
+
+set pastetoggle=<F2>
+
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>f :Unite file<CR>
+set timeoutlen=1000
