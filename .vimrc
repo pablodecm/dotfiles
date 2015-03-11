@@ -21,11 +21,26 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Bundles:
-NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
+
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell'
+
+NeoBundle 'Valloric/YouCompleteMe', {
+\ 'build' : {
+\     'mac' : './install.sh --clang-completer',
+\     'unix' : './install.sh --clang-completer'
+\    }
+\ }
 
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
