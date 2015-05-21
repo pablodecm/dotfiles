@@ -35,19 +35,15 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell'
 
-NeoBundle 'Valloric/YouCompleteMe', {
-\ 'build' : {
-\     'mac' : './install.sh --clang-completer',
-\     'unix' : './install.sh --clang-completer'
-\    }
-\ }
-
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/gist-vim'
 
 NeoBundle 'tomasr/molokai'
+NeoBundle 'vim-pandoc/vim-pandoc'
+NeoBundle 'vim-pandoc/vim-pandoc-syntax' 
+
 
 call neobundle#end()
 
